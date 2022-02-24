@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        console.log("g="+g);
+        var g=10;  // global variable
+        //console.log("x="+x); //error - as  x is local variable to foo
+        function foo(){
+
+            var x=100; // local to function
+            console.log("g="+g);
+            console.log("x="+x+" z="+z);// z will not be available 
+            // Javascript Hoisting - Block level variable declaration get hoisted at begining of function when declared with var
+
+            var z=10;
+            //ES-2015
+            let xx=20; // block level scope - let and const have block level scope
+            
+            xx=30 // allowed as xx is a variable
+            //ES-2015
+            const VAL =100; // block level scope 
+         //    VAL=300;  // Error assingment to constant not allowed
+
+            
+        }
+        foo();
+
+        const CONST_VAR= 40; // const variable
+
+        const obj={t1:10,t2:30}; // const ref
+
+        obj.t1=200;
+        console.log(obj.t1)
+
+        obj={}  // obj is const hence can not be reassigned 
+
+    </script>
+</body>
+</html>

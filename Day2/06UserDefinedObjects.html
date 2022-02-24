@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+
+    /*
+    1. - Object literal Syntax
+    2. - Direct instance of Object 
+    */
+
+    //2. - Direct instance of Object  or empty object
+    var person1={}; //empty Object
+
+    var person2=new Object(); // using Object Ctor
+
+
+    // add members to person1
+    person1.id=123;
+    person1.fname='Harry';
+    person1.lname='Potter';
+
+    // adding functions to object
+    person1.getName=function(){
+        return this.fname+"  "+this.lname;
+    }
+
+    console.log(person1);
+    console.log(person1.getName());
+
+    person2.id=234
+    console.log(person2);
+    console.log(person2.id);
+  //  console.log(person2.getName()); error
+
+
+    //  - Object literal Syntax
+
+    var personObj={
+        id:300,
+        fname:'Rama',
+        lname:'Patil',
+        getName: function(){
+            return this.fname+"  "+this.lname;
+        }
+    }
+
+    // Using Template like a class - Object Ctor
+
+    // Constructor Function
+    function Person(id,fname,lname){
+        this.id=id;
+        this.fname=fname;
+        this.lname=lname;
+        this.getName=function(){
+            return this.fname+"  "+this.lname;
+        }
+    }
+
+    var p1=new Person(100,'Sanchin','Tendulkar');
+    var p2=new Person(101,'Anand','Deshpande');
+    console.log(p1.getName());
+    console.log(p2.getName());
+
+   </script> 
+</body>
+</html>

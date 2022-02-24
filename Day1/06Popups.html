@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- internal styles  -->
+    <!-- <style>
+        span{
+            color: bisque;
+            background-color: blue;
+            font-size: xx-large;
+        }
+        
+    </style> -->
+
+    <!-- External style -->
+    <link rel="stylesheet" href="06popup.css" >
+    
+    <!-- include external js file -->
+    <script src="06calculator.js"></script>
+    <script>
+
+        function add(x,y){
+            return x+y;
+        }
+    </script>
+
+
+</head>
+<body>
+    <!-- Pop ups in Javascript
+        alert - message box
+        prompt - accepting input from user 
+        confirm - confirming OK or Cancel
+    -->
+    <!-- using inline style  -->
+    <!-- <b> Addition  : <span id="addSpan" style="color: brown;background-color: bisque; font-size: larger;"> </span> </b> -->
+
+    <!-- using internal style -->
+    <b> Addition  : <span id="addSpan"> </span> </b><br>
+    <b> Multiplication  : <span id="multSpan"> </span> </b>
+    <script>
+        alert("Display Message");
+        var no1 = parseInt(prompt("Enter Value ",10)); // parsing string to number
+        var no2 = Number(prompt("Enter Value ",20)); // converting string to number
+       // var result=no1+no2;
+       var result=add(no1,no2); // calling function
+       document.getElementById('addSpan').innerHTML=result
+       var multResult=mult(no1,no2); // calling function
+       document.getElementById('multSpan').innerHTML=multResult
+        alert(" Result :"+result);
+
+
+        if(confirm("Are you sure to delete?")){
+            alert(" Of DELETING")
+        }
+        else{
+            alert(" You Canceled deletion")
+        }
+    </script>
+</body>
+</html>

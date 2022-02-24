@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+  
+           //1
+      function getArgs(){
+        document.write("<br/>Inside getArgs....");
+    }
+
+        //2 No Function Overloading present in Javascript
+        function getArgs(x,y,z){
+            document.write("<br/>Inside parametrized getArgs....");
+            document.write(arguments.length);
+            for(var i in arguments){
+                console.log(arguments[i]);
+            }
+        }
+
+        
+        // By Default each and every function is a variable argument function
+        //  hence javascript doen't support Overloading
+   
+        //getArgs(); //1
+        //getArgs(10,20,30); // 2
+        //getArgs(23,34); // error? - code worked
+
+        // How to write functions in javascript
+
+        // Function declaraion syntax
+
+        /* sayHello("Radha");  // calling function before declaration
+        // Allowed as Function Declaration Sytax 
+        // JavaScript Hoisting
+        // Local variable and function declaration get hoisted at the begining
+
+        function sayHello(name){
+            alert(" Hello "+name+"!");
+        }
+
+        sayHello("Teja");
+
+
+        //  Function Expression Syntax
+        // Funtions declared with expression
+        display();  // function declared with Function expression syntax will not get hoisted
+        var display= function(){
+            console.log(" display function invoked!");
+        }
+        display(); */
+
+        // Understanding parseInt and Number
+
+        document.write("<br/>"+parseInt("123")); //123
+        document.write("<br/>"+parseInt("123abdfk")); //123
+        document.write("<br/>"+Number("123abdfk")); // NaN
+        document.write("<br/>"+parseInt("ss123abdfk")); //NaN
+        document.write("<br/>"+parseInt("123e-2")); //123 //123
+        document.write("<br/>"+Number("123e-2")); //1.23 Conversion
+        document.write("<br/>"+parseInt("101",10)); // 101  - base 10 - Decimal value
+        document.write("<br/>"+parseInt("101",2)); // 5
+        document.write("<br/>"+parseInt("101",8));
+        document.write("<br/>"+parseInt("101",16));
+        document.write("<br/>"+parseInt("34.56"));  // 34 use parseFloat for decimals
+        document.write("<br/>"+Number("34.56"));
+    </script>
+</body>
+</html>

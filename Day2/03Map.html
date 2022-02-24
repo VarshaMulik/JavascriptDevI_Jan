@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Map uses set and get
+        let map=new Map();
+
+        map.set('key1',200);
+        map.set(100,"two");
+        map.set('today',new Date());
+        console.log(map);
+
+        console.log(map.get('today'));
+        console.log(map.get(100));
+        console.log(map.get('asdasd')); //undefined this key is not present
+
+        console.log("size :",map.size);
+        console.log(" entries => "+map.entries())
+        for(var [k,v] of map.entries()){
+            document.write('<br/>'+k +" : "+v);
+        }
+        console.log(map.keys());
+        console.log(map.values());
+        document.write('<br/>');
+        // Template Strings
+        var names=['Ram', 'Shaym','Bob','Pop']
+        for(let name of names){
+        let str1=`Hello ${name}   
+                How are you?`;
+                console.log(str1);
+        } 
+    </script>
+</body>
+</html>

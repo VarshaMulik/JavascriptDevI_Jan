@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ES 5
+
+        var a=5;  // Number
+        var b=6.7; //Number
+        var ch= 'X'; // String
+        var str="Hello"; // String
+        var flag=true;  //Boolean
+        var value;  // undefined 
+       // var a="test"
+        // array
+        var arr=['BMW','TATA','HONDA']  // Object
+        
+        // object 
+        var obj={firstName:'Rahul' , lastName: 'Dravid'}
+
+        document.write(" Type of a : "+typeof(a));
+        document.write("<br/> Type of b : "+typeof b);
+        document.write("<br/> Type of ch : "+typeof ch);
+        document.write("<br/> Type of str : "+typeof str);
+        document.write("<br/> Type of flag : "+typeof flag);
+        document.write("<br/> Type of value : "+typeof value);
+        document.write("<br/> Type of arr : "+typeof arr);
+        document.write("<br/> Type of obj : "+typeof obj);
+        a= a + " Some Text"
+        document.write("<br/> Type of a : "+typeof(a));
+        a=3+4+"Hello"+3+4  // 7Hello34
+        document.write("<br/> a : "+a);
+        a="Hello"+3+4;  //Hello34
+        document.write("<br/> a : "+a);
+
+        var v_234="kjk";
+      //  document.write("<br/> a : "+V_234); // V_234 not defined (Javasccript is case sensitive)
+
+        var z=11 // assignment
+
+        //if( z== '11') // ==   it compare value only hence true
+        if( z=== '11')  // ==   it compare value and datatype hence false
+        {
+            document.write("<br/> z==11 is true");
+        }else{
+            document.write("<br/> z==11 is Not true");
+        }
+
+        // in ES 5 - for loop
+        for(var i=0;i<arr.length;i++){
+            console.log(arr[i])
+        }
+        
+        
+        // in ES 5 - for- in loop
+        // here i is index of array
+        for(var i in arr){
+            console.log(arr[i])
+        }
+        // in ES 6 - for- of loop   similer to for each loop in other languages
+        // here temp is current value of array
+        for(var temp of arr){
+            console.log(temp)
+        }
+    </script>
+</body>
+</html>

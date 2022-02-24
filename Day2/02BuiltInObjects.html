@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        /*
+
+        primitive values in JS
+
+        number
+        string
+        boolean
+        object
+        undefined
+        null
+        bigint
+        */
+
+        /*
+            Built in Objects in JS
+            // Number
+            // String
+            // Array
+            // Date
+            // Math
+            // document
+            // window
+        */
+
+        let x=10;
+        console.log(x.toExponential());
+        // String
+        let str="Hello"
+        console.log(str.toUpperCase()); // str is a Object
+
+        // Date 
+        let today=Date.now(); 
+
+        console.log('Today '+today);
+        console.log('Today '+today);
+
+        //Date using Constructor
+        let dd=new Date();
+        console.log('Today '+dd);
+        console.log('Today '+dd.getDate());
+        console.log('Today '+dd.getMonth());
+
+        // Array
+        // using []
+        var array=['One','Two','Three']
+        // using CTOr 
+        var a1=new Array(5); //declare array with size 5
+        console.log(a1.length);
+        a1[0]=20;
+        a1[1]=30;
+
+        a1[8]=100; // extended array to the given index
+        console.log(a1[8]); /// ? undefined
+
+        for(let val of a1){
+            document.write(val+" , ")
+        }
+        // Using array as a Stack  - LIFO - push and pop
+        a1.push(150);
+       document.write("<hr/>")
+        for(let val of a1){
+            document.write(val+" , ")
+        } 
+        document.write("<br/>length before pop "+a1.length);
+        document.write("<br/>poping value from array "+a1.pop());
+        document.write("<br/>length after pop "+a1.length);
+
+        // Using array as a Queue  - FIFO - shift and unshif- constly operations
+        a1.shift(); // remove from Que
+
+        document.write("after shift <br/>"+a1.toString());
+        a1.unshift(2,3,5) // insert in Que
+        document.write("<br/>after unshift <br/>"+a1);
+        function foo(){
+            console.log('foo invoked!');
+        }
+        let myAry=["One",100,new Date(),{name:'Sachin',age:34},foo];
+        console.log(myAry);
+
+
+        // Math
+
+        console.log('Max from 34,56,78 =',Math.max(34,56,78));
+        console.log('ramdom value '+Math.random());
+
+
+    </script>
+</body>
+</html>
