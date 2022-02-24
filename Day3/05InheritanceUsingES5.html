@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // Inheritance - Resuability 
+
+        // Car 
+        // SUV
+
+        // ES5 - 3 ways to achive inheritance 
+
+        // 1. Prototype Chaining
+        // 2. Classical Inheritance
+        // 3. Pseuodo Classical Inheritance
+  /*
+        function Parent(rel){
+            this.relation=rel;
+            this.job=['Service','Business'];
+            this.show=function(){
+                console.log(this.relation);
+            }
+        }
+      
+       // Prototype Chaining
+        Child.prototype=new Parent('Father');
+        Child.prototype.constructor=Child;
+        
+        function Child(rel){
+
+        }
+
+        var child1=new Child('Son');
+        var child2=new Child('Daughter');
+
+        child1.show();
+        console.log(child1.job);
+        child2.show();
+        child2.job.push('Farming');
+        console.log(child1.job);
+        console.log(child2.job);
+
+        // Limitations of Prototype chaining
+        // 1. Arguments can not be passed to Parent using Child
+        // 2. Inhertited instance properties becomes proptyotype properties 
+
+        */
+
+        // 2. Classical Inheritance
+
+        function Parent(rel){
+            this.relation=rel;
+            this.job=['Service','Business'];
+            this.show=function(){
+                console.log(this.relation);
+            }
+        }
+      
+        Parent.prototype.parentPrototypeMethod=function(){
+            console.log("Parent's Prototype Level Method...")
+        }
+        function Child(rel){
+                // classical inheritance 
+            Parent.call(this,rel);
+
+        }
+
+        var child1=new Child('Son');
+        var child2=new Child('Daughter');
+
+        child1.show();
+        console.log(child1.job);
+        child2.show();
+        child2.job.push('Farming');
+        console.log(child1.job);
+        console.log(child2.job);
+        child1.parentPrototypeMethod();
+
+        //Limitation 
+        //1. No function resuse at Memory level
+        //2. Child Classes will not be able to acess dethod defined in Parent's PRototype
+    </script>
+</body>
+</html>

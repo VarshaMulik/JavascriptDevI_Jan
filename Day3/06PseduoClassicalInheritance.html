@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Person(name){
+            this.name=name;
+        }
+
+        // Prototype Method
+        Person.prototype.speakLanguage=function(){
+            alert('I speak English');
+        }
+        Person.prototype.introduce=function(){
+            alert(` Hi, I am ${this.name}` )
+        }
+
+        //Prototype Chaining
+        Student.prototype=new Person();
+        Student.prototype.constructor=Student;
+
+        function Student(name,college,course){
+            //classical inheritance 
+            Person.call(this,name);
+            this.college=college;
+            this.courses=course;
+        }
+        //Override Prototype method of Parent
+        Student.prototype.introduce=function(){
+            console.log(` Hi, I am ${this.name} from ${this.college}  and Enrolled for ${this.courses}` );
+        }
+
+        Student.prototype.enroll=function(courseName){
+            this.courses.push(courseName);
+        }
+        // creating Parent Object
+        var person = new Person('Rahul')
+        person.speakLanguage();
+        person.introduce();
+
+        var s1=new Student('Sachin','PICT',['C','C++']);
+        var s2=new Student('Krish','COEP',['Java', 'Javascript']);
+        s2.enroll('LWC');
+
+        s1.speakLanguage(); // accessing parent's method
+        s1.introduce(); //Overriden Method
+        s2.speakLanguage(); // accessing parent's method
+        s2.introduce(); //Overriden Method
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        var person1={pname:'Rahul', city: 'Mumbai'};
+        var person2={pname:'Neha', city: 'Pune'};
+
+        var sayHi=function(){
+            alert(" Hi "+this.pname+" is from city: "+this.city);
+        }//.bind(person2);
+
+        // while declaring function u bind object to that function
+
+
+     //   sayHi(); // no link between object and function
+
+       //  person1.sayHi(); // person don't define sayHi 
+        var updatePerson=function(name,city){
+            this.pname=name;
+            this.city=city;
+        }
+      
+
+     sayHi.call(person1); // calling say Hi by sharing object 
+        updatePerson.call(person2,'Reema','Nagpur');
+        updatePerson.apply(person1,['Sachin','Delhi'])
+       sayHi.apply(person1); // invoking method with new Context 
+      //  sayHi(person2);
+    </script>
+</body>
+</html>

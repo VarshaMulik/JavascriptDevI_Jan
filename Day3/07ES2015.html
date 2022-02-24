@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        class A{
+            constructor(data){
+                this.data=data;
+            }
+            a=10;
+            data;
+            foo(){
+                console.log("Parent's Foo invoked! ");
+            }
+        }
+
+        class B extends A{
+            
+            bval
+         /*   constructor(sval,bval){
+               // super(sval);
+                this.bval=bval;
+            } */
+            constructor(sval,bval){
+                 super(sval);
+                 this.bval=bval;
+             }
+            bar(){
+                console.log(" Child's Bar method invoked!");
+            }
+            foo(){
+                console.log("Child's Foo invoked! "+this.bval+"  "+this.data);
+            }
+        }
+        var aobj=new A();
+        aobj.foo();
+
+        var bobj=new B(100,120);
+        bobj.bar();
+        bobj.foo();
+
+    </script>
+</body>
+</html>

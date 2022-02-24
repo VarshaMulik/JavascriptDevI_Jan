@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // 'this' is not set to the prototype object
+        // this will always refer to the original object  irrespective where the method found
+        function Employee(r){
+            this.role=r;
+
+            // Re - using source code 
+           /* this.display=function(){
+                alert('Ctor Level role :'+this.role);
+            } */
+        }
+
+        // Prototype level
+        // Resuability of Source code + at memory level as well
+        Employee.prototype.display=function(){
+            alert('Prototype Level role :'+this.role);
+        }
+
+        var emp1=new Employee('Developer');
+        var emp2=new Employee('Tester');
+        emp1.display=function(){
+            alert("Object Level role: "+this.role)
+        }
+
+        console.log(emp1);
+        emp1.display();
+        emp2.display();
+
+    </script>
+</body>
+</html>

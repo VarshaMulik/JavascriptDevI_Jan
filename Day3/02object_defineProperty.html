@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+            // Constructor Function
+    function Person(id,fname,lname){
+        this.id=id;
+        this.fname=fname;
+        this.lname=lname;
+        this.species='Human';
+        this.getName=function(){
+            return this.fname+"  "+this.lname;
+        }
+    }
+
+ /* 
+   var p1=new Person(100,'Rahul','Dravid');
+    console.log(p1.getName()+'  , '+p1.species);
+
+    p1.species='Fish';
+
+    console.log(p1.getName()+'  , '+p1.species);
+    */
+
+    // Object.defineProperty()- define a new Property or modifies existing property
+    var p1=new Person(100,'Rahul','Dravid');
+    console.log(p1.getName()+'  , '+p1.species);
+    Object.defineProperty(p1,'species',{
+        value : 'Human Being',
+        writable:false, // will allow to modify this property
+        configurable:false, // will not allow to delete
+        enumerable:false
+    })    
+    p1.species='Fish';  // writable is false
+    console.log(p1.getName()+'  , '+p1.species);
+
+    delete p1.species;
+    console.log(p1.getName()+'  , '+p1.species);
+
+    for(var prop in p1){
+        console.log(prop ,"  " ,p1[prop]);
+    }
+
+    </script>
+</body>
+</html>
