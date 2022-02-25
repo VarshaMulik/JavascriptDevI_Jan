@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+      //  Anonymous Data
+       
+        "abcd", 23,34.23,[2,4],null;
+        
+        // Anonymous Functions
+
+        // Usage of Anonymous Function
+        // Call back methods
+        // Self Executing Functions
+
+        // Call Back Methods - Function Defination is written by your program and used by someone else
+        // eg. os, h/w, threads , other module
+
+    /*   var foo= function (){
+        console.log("Hello");
+        }
+
+        var otherFoo=foo; // assigning reference 
+        otherFoo(); // invoking
+
+        // .dll - function by OS
+        function invoke_and_add(fun1,fun2){
+            return fun1() + fun2();
+           // var x= fun1(); // callbacks - invoking functions in dll
+           // var y=fun2();
+           // return x+y; 
+        }
+
+        function one(){
+            return 34;
+        }
+        function two(){
+            return 10;
+        }
+        //function expression syntax
+        var fun1=function  x(){return 100;}
+
+
+        invoke_and_add(function  (){return 100;}, function(){return 12});
+       console.log("result :"+  invoke_and_add(one,two));
+       var result= invoke_and_add(function  f1(){return 12;},function  f2(){return 15;});
+       console.log("result :"+  result);
+
+      */  
+
+       // Self Executable function
+       // IIFE - Immediately Invoked  Function Expression
+
+        var foo=(function(){
+            return 100;
+        })(); //IIFE
+
+        console.log(foo);  // value 100 
+      //  console.log(foo()); // error
+
+        for(var i=1;i<=5;i++){
+            (function(no){
+                console.log(" no :"+no);
+            })(i);
+        }
+
+    </script>
+
+</body>
+</html>

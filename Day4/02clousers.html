@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        
+
+      /*  function increment(){
+            var counter=0;  // some how we want to execute this line only once 
+           return function inc(){
+                counter++;
+                return counter
+            }
+         
+         
+        }  
+        */
+
+        /*
+        Javascript Clousers - This is trying to retain the enviornment of the outer function within
+        the inner function, even though the outerfunction executed outside of inner function
+
+        */
+        var increment = (function (){
+            var counter=0;  // some how we want to execute this line only once 
+           var inc= function (){
+                counter++;
+                return counter;
+            }   
+            
+            return inc;
+        })();
+      
+      console.log( increment()); //1
+      console.log( increment()); //1
+      console.log( increment()); //1
+      console.log( increment()); //1
+      console.log( increment()); //1
+      console.log( increment()); //1
+      console.log( increment()); //1
+      console.log( increment()); //1
+        
+
+
+    </script>
+</body>
+</html>

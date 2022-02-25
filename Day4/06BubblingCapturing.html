@@ -1,0 +1,84 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='div1'>
+        <p id='para1'> This is bubbling!</p>
+    </div>
+    <div id='div2'>
+        <p id='para2'> This is capturing!</p>
+    </div>
+    <script>
+        function $(id){
+            return document.getElementById(id);
+        }
+        $('div1').addEventListener('click',function(){
+            alert('You clicked div1!');
+        },false)// false is default value - bubbling - child to parent
+
+
+        $('para1').addEventListener('click',function(){
+            alert('You clicked para1!');
+        },false)
+        $('div2').addEventListener('click',function(){
+            alert('You clicked div2!');
+        },true) // true - capturing - parent to child
+        $('para2').addEventListener('click',function(){
+            alert('You clicked para2!');
+        },true)
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div1 {
+            background-color: peachpuff;
+            color: maroon;
+            border: 1px solid;
+            padding: 50px;
+        }
+                #p1{
+            font-size: xx-large;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <input type="button" id="mybtn" value="RemoveListener" />
+    </div>
+    <p id="p1">werewr</p>
+
+    <script>
+
+        
+        function $(id){
+            return document.getElementById(id);
+        }
+        function fun(evt){
+            $('p1').innerHTML= ('x:'+evt.pageX+'y: '+evt.pageY);
+        }
+
+        $('div1').addEventListener('mousemove',fun);
+        $('mybtn').addEventListener('click',removeListner)
+       
+
+        function removeListner(){
+            $('div1').removeEventListener('mousemove',fun)
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+            HTML - Structure and Content
+            CSS  - Styles and Layout
+            Javascript - Interactivity and Behaviour
+     -->
+
+     <div id="div1"> Date will appear here</div>
+     <!-- Obtrusive Javascript -->
+     <!-- Event - click   Handler - onclick  -->
+     <!-- <button id="btnDateTime" onclick="getElementById('div1').innerHTML= Date()"> Show Date Time </button> -->
+     <!-- <button id="btnDateTime" onclick="showDateTime()"> Show Date Time </button> -->
+  <!-- Unobtrusive Javascript -->
+     <button id="btnDateTime" > Show Date Time </button>
+     <script>
+
+        function $(id){
+            return document.getElementById(id);
+        }
+        function applyStyle(){
+            $('div1').style.backgroundColor = 'Blue'
+            $('div1').style.color = 'Yellow'
+            $('div1').style.fontSize='xx-large'
+        }
+        function showDateTime(){
+            $('div1').innerHTML= new Date()
+        }
+        var btn=$("btnDateTime");
+
+      //  btn.onclick=applyStyle;
+      //  btn.onclick=showDateTime;
+        btn.addEventListener('click',showDateTime,false);
+        btn.addEventListener('click',applyStyle);
+     </script>
+</body>
+</html>

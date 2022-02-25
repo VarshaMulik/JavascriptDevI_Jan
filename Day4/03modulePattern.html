@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        function Employee(id, name, city){
+            this.id=id;
+            this.name=name;
+            this.city=city;
+        }
+
+        var empModule=(function(){
+            var empList=[]; // private data 
+
+            var add=   function (e){
+                empList.push(e);
+            }
+           var disp= function (){
+                for(var e of empList){
+                    console.log(e);
+                }
+            }
+            return{
+               add,
+               disp
+            }
+        })() 
+
+empModule.add(new Employee(100,'Tom','Pune'));
+empModule.add(new Employee(101,'Bob','Mumbai'));
+empModule.add(new Employee(102,'Pom','Pune'));
+
+empModule.disp();
+
+    </script>
+
+
+</body>
+</html>

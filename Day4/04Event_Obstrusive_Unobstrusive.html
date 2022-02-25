@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+            HTML - Structure and Content
+            CSS  - Styles and Layout
+            Javascript - Interactivity and Behaviour
+     -->
+
+     <div id="div1"></div>
+     <!-- Obtrusive Javascript -->
+     <!-- Event - click   Handler - onclick  -->
+     <!-- <button id="btnDateTime" onclick="getElementById('div1').innerHTML= Date()"> Show Date Time </button> -->
+     <!-- <button id="btnDateTime" onclick="showDateTime()"> Show Date Time </button> -->
+  <!-- Unobtrusive Javascript -->
+     <button id="btnDateTime" > Show Date Time </button>
+     <script>
+
+        function $(id){
+            return document.getElementById(id);
+        }
+
+    /*    function getElement(id){
+            return document.getElementById(id);
+        }
+        */
+     /*   var showDateTime =function(){
+            document.getElementById('div1').innerHTML= new Date()
+        } */
+
+
+        var showDateTime =function(){
+            $('div1').innerHTML= new Date()
+        }
+        var btn=$("btnDateTime");
+
+        // With the helper we can handle event
+        btn.onclick=showDateTime;
+
+     </script>
+</body>
+</html>
