@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="myList">
+        <li id="item1"> Javascript</li>
+        <li id="item2"> JQuery</li>
+        <li id="item3"> Backbone</li>
+        <li id="item4"> NodeJs</li>
+    </ul>
+    <button onclick="getFirstChild()"> Get First Child</button>
+    <button onclick="getNextSibling()"> Get Next Sibling</button>
+    <button onclick="getLastChild()"> Get Last Child</button>
+    <button onclick="getPreviousSibling()"> Get Previous Sibling</button>
+    <button onclick="getChildNodes()"> Get Last Child</button>
+    <button onclick="getParentNode()"> Get Parent Node</button>
+
+    <p id="demo"></p>
+    
+    <script>
+
+        function $(id){
+            return document.getElementById(id);
+        }
+
+        function getFirstChild(){
+           var li= $('myList').firstChild;
+            $('demo').innerHTML+="<br/>"+li.innerHTML
+        }
+        function getNextSibling(){
+            var li= $('myList').firstChild;
+             $('demo').innerHTML+="<br/>"+li.nextSibling.innerHTML
+         }
+
+      
+         function getLastChild(){
+            var li= $('myList').lastChild;
+             $('demo').innerHTML+="<br/>"+li.nodeValue
+         }
+         function getPreviousSibling(){
+            var li= $('myList').lastChild;
+             $('demo').innerHTML+="<br/>"+li.previousSibling.innerHTML
+         }
+         function getChildNodes(){
+            var li= $('myList').childNodes;
+            for(var l in li){       
+             $('demo').innerHTML+="<br/>"+li[l].childNodes[0].nodeValue
+            }
+         }
+         function getParentNode(){
+            var li= $('item1').parentNode;
+             $('demo').innerHTML+="<br/>"+li.nodeName;
+         }
+
+    </script>
+</body>
+</html>

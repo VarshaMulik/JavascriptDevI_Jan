@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="opener"> First Paragraph!</p>
+    <p> Second Paragraph</p>
+    <p class="closer"> Third Paragraph</p>
+    <p class="closer"> Fourth Paragraph</p>
+    <div class="closer"> This is the div with class closer  </div>
+    <div> This is Simple Div!</div>
+    <br/>
+    <span>This is Outer Span</span>
+    <div>
+        <span>This is inner Span </span>
+        <br/>
+        <span> One More  inner Span</span>
+    </div>
+
+    <button id="btnChange">Change!</button>
+
+    <script>
+
+     document.getElementById('btnChange').onclick=  function(){
+
+       // var p1= document.getElementById("opener");
+       // p1.style.color='red';
+
+      // var p1= document.querySelector("#opener")
+      // p1.style.color='blue'
+
+      // searches for first inner span of div
+     // var ispan= document.querySelector("div > span")
+    //  ispan.style.color='blue'
+     // ispan.style.backgroundColor='yellow'
+
+/*
+     var ispanArry= document.querySelectorAll("div > span")
+
+     for(var i in ispanArry){
+     ispanArry[i].style.color='blue'
+     ispanArry[i].style.backgroundColor='yellow'
+     }
+
+
+     var ispanArry= document.querySelectorAll("span")
+
+     for(var i in ispanArry){
+     ispanArry[i].style.color='blue'
+     ispanArry[i].style.backgroundColor='yellow'
+     }
+
+
+     var classAry= document.getElementsByClassName("closer");
+
+     for(var i in classAry){
+        classAry[i].style.color='indigo'
+        classAry[i].style.backgroundColor='aqua'
+     }
+*/
+
+     var newPara=document.createElement('p');
+     newPara.innerHTML='New Paragraph created Dynamically'
+     newPara.style.backgroundColor='green'
+     newPara.style.color='yellow'
+     newPara.style.fontSize='xx-large'
+     newPara.style.width="200px"
+     newPara.style.border='solid 5px navy'
+
+     document.body.appendChild(newPara);
+
+     var delPara=document.getElementsByTagName('p')[2];
+     document.body.removeChild(delPara);
+
+    }
+
+    </script>
+</body>
+</html>

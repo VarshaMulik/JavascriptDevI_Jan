@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1> you will get greeting message after 3000 miliseconds</h1>
+    <p id="para1" style="color: blue; font-size: xx-large;">0</p>
+
+    <button id="btnStart" onclick="tmrStart()">Start</button>
+    <button id="btnStop" onclick="tmrStop()">Stop</button>
+    <script>
+
+     var timeOut=   setTimeout(function(){
+            alert("Hello! How are you?");
+        },3000)
+
+
+        clearTimeout(timeOut);
+
+
+        var i=0;
+        var timerI=null;
+        function tmrStart(){
+          timerI=  setInterval(function(){
+                        document.getElementById('para1').innerText= i++ ;},1000)
+        }
+
+        function tmrStop(){
+           clearInterval( timerI);
+          }
+
+    // setTimeout(fun,interval) //only once
+    // setInterval(fun,interval)  // repeat after interval 
+    //clearTimeout
+    // clearInterval
+</script>
+
+</body>
+</html>

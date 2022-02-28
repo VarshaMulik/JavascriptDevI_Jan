@@ -1,0 +1,78 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1> Explore Window Object</h1>
+    <br/>
+    <a href="Javascript:newWindow()">open new Window</a>
+    <a href="Javascript:closeWindow()">close Window</a>
+
+    <script>
+
+        var newWin=null;
+        function newWindow(){
+            newWin= window.open('bruce.jpg','_blank','my new window');
+        }
+        function closeWindow(){
+            newWin.close();
+        }
+        console.log(screen)
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1> Explore Window Object</h1>
+    <br/>
+    <a href="https://google.co.in"> Google</a>
+    <button onclick="goBack()">Back</button>
+    <button onclick="goForward()">forward</button>
+    <script>
+/*
+       for(var i in window.navigator.plugins){
+           document.write("<br/>"+navigator.plugins[i].name);
+       }
+
+       document.write("<br/> Platform "+navigator.platform);
+       document.write("<br/> Cookies Enabled? "+navigator.cookieEnabled);
+       document.write("<br/> is Online "+navigator.onLine);
+
+       
+
+       // location
+       document.write("<br/> href of current Page:  "+location.href);
+       document.write("<br/>HostName : "+location.hostname);
+       document.write("<br/> Path : "+location.pathname);
+       document.write("<br/> Path : "+location.protocol);
+
+       */
+
+       // History - 
+
+       console.log(window.history);
+
+       function goForward(){
+           history.forward();
+       }
+
+       function goBack(){
+        history.back();
+    }
+    </script>
+</body>
+</html>

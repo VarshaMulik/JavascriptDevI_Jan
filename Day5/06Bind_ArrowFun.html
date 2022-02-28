@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <script>
+/*
+        function Person(){
+            var that=this;
+            that.age=0;
+            setInterval(function(){
+                   document.write("<br/>"+that.age++) 
+                    },1000)
+        }
+
+
+function Person(){
+  
+    this.age=0;
+    setInterval(function(){
+           document.write("<br/>"+this.age++) 
+            }.bind(this),1000)
+}
+
+*/
+
+function mult(x,y){
+    return x*y;
+}
+
+ var multArrow= (x,y) => {
+    return x*y;
+}
+
+
+var add= function(x,y){
+    return x+y;
+}
+
+var add1= (x,y)=>{return x+y};
+var add2= (x,y)=>x+y;
+
+console.log(add2(10,23));
+
+/*
+function Person(){
+  
+    this.age=0;
+    setInterval(()=>{
+           document.write("<br/>"+this.age++) 
+            },1000)
+}
+*/
+
+
+
+
+     //   var person=new Person();
+      </script>  
+</body>
+</html>
