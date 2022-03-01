@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div id="demo">
+    This content will be changed!
+</div>
+<br/><br/>
+<button id="btnChange">Fetch And Display Content </button>
+
+<script>
+
+    var btnChange = document.getElementById('btnChange');
+
+    function showArray(ary){
+        var out="<table border=1 ><tr><th>UserId</th><th>Title</th>";
+        for(var i in ary){
+            out+="<tr> <td> "+ary[i].userId+"</td><td> "+ary[i].title+"</td></tr>";
+        
+        }
+        out+="</table>"
+        console.log(out);
+        document.getElementById("demo").innerHTML=out;
+    }
+
+
+    btnChange.onclick= function  loadDoc(){
+        // Fetch data from server
+
+        var url= "https://jsonplaceholder.typicode.com/posts"
+       // var url="00Players.json";
+        var xhttp=new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function(){
+            if(xhttp.readyState===4 && xhttp.status===200){
+              var text= xhttp.responseText;  
+              var jsonArry= JSON.parse(text);
+             // document.getElementById("demo").innerText=text;
+              showArray(jsonArry);
+            }
+        }
+        xhttp.open('GET', url,true);
+        xhttp.send(); // submit the request to the server
+    }
+</script>
+
+<!--   
+
+    JSON - Javascript Object Notation
+
+
+    JSON can be parsed using std Javascript functions
+    JSON.parse - Parse Json String to Javascript Object
+    JSON.stringify - Converts Javascript Object to JSON String
+ -->
+</body>
+</html>

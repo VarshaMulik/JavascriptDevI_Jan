@@ -1,0 +1,13 @@
+ URL => https://www.npmjs.com/package/json-server
+
+ npm install -g json-server
+
+ Create a products.json file with some data
+
+
+ json-server --watch products.json  => this will server on default port 3000
+
+json-server --watch products.json --port 8000 => this will server on  port 8000
+
+Incase json-server is not working try with 
+npx json-server --watch products.json --port 8000

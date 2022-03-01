@@ -1,0 +1,22 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "I-Phone X",
+      "description": "Apple Smart Phone",
+      "status": "available"
+    },
+    {
+      "id": 2,
+      "name": "asdas",
+      "description": "qweqwe",
+      "status": "qweqwe"
+    },
+    {
+      "id": 3,
+      "name": "Charger",
+      "description": "C type",
+      "status": "available"
+    }
+  ]
+}

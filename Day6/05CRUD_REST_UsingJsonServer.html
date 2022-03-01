@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='outDiv'>
+    </div>
+    <div style="width:800px; margin:0 auto;">
+        <h1 style="margin-left:100px;">Product Details</h1>
+        <div id='outDiv'></div>
+        <div id='dvTable'></div>
+        <br /> Product Id:
+        <input id='productId' />
+        <button id="btnDelete">Delete Product!</button>
+        <button id="btnGet">Get Product!</button>
+        <br /> Product Name:
+        <input id='productName' />
+        <br /> Product Description:
+        <input id='productDesc' />
+        <br /> Product Status:
+        <input id='productStatus' />
+        <br />
+        <br />
+        <button id="btnAdd">Add Product!</button>
+        <button id="btnUpdate">Update Product!</button>
+        <br />
+    </div>
+
+<script>
+
+
+    function $(id){
+        return document.getElementById(id);
+    }
+
+    function dynamicProductsTable(arr) {
+        var products = [["Product Id", "Product Name", "Product Description", "Product Status"]];
+        for (var i in arr) {
+            products.push([arr[i].id, arr[i].name, arr[i].description, arr[i].status]);
+        }
+
+        //Create a HTML Table element.
+        var table = document.createElement("TABLE");
+        table.border = "1";
+
+        //Get the count of columns.
+        var columnCount = products[0].length;
+
+        //Add the header row.
+        var row = table.insertRow(-1);
+        for (var i = 0; i < columnCount; i++) {
+            var headerCell = document.createElement("TH");
+            headerCell.innerHTML = products[0][i];
+            row.appendChild(headerCell);
+        }
+
+        //Add the data rows.
+        for (var i = 1; i < products.length; i++) {
+            row = table.insertRow(-1);
+            for (var j = 0; j < columnCount; j++) {
+                var cell = row.insertCell(-1);
+                cell.innerHTML = products[i][j];
+            }
+        }
+
+        var dvTable = document.getElementById("dvTable");
+        dvTable.innerHTML = "";
+        dvTable.appendChild(table);
+    }
+
+    function showArray(ary){
+        dynamicProductsTable(ary);
+    }
+   
+    document.onreadystatechange=loadDoc;
+   function  loadDoc(){
+
+    var url= "http://localhost:8000/products"
+              var xhttp=new XMLHttpRequest();
+        xhttp.onreadystatechange = function(){
+            if(xhttp.readyState===4 && xhttp.status===200){
+              var text= xhttp.responseText;  
+              var jsonArry= JSON.parse(text);
+             // document.getElementById("demo").innerText=text;
+              showArray(jsonArry);
+            }
+        }
+        xhttp.open('GET', url,true);
+        xhttp.send(); // submit the request to the server
+    }
+
+
+    function  getProduct(){
+        var id= $('productId').value;
+        if(id===""){
+            alert(' Enter Productid')
+        }
+        var url= "http://localhost:8000/products/"+id;
+        var xhttp=new XMLHttpRequest();
+        xhttp.onreadystatechange = function(){
+         if(xhttp.readyState===4 && xhttp.status===200){
+        var text= xhttp.responseText;  
+        var jsonArry= JSON.parse(text);
+        alert("Product Id :"+jsonArry.id+" name "+jsonArry.name);
+        }
+        }
+        xhttp.open('GET', url,true);
+        xhttp.send(); // submit the request to the server
+    }
+    $('btnGet').onclick=getProduct
+
+    function  addProduct(){
+     
+        var url= "http://localhost:8000/products";
+        var xhttp=new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function(){
+            if(xhttp.readyState===4 && xhttp.status===201){
+             console.log(xhttp.response)
+            }
+        }
+        xhttp.open('POST', url,true);
+        var newPost =readProductFromUI();
+        xhttp.setRequestHeader('Content-Type','application/json;charset=UTF-8')
+        xhttp.send(JSON.stringify(newPost)); // submit the request to the server
+    }
+    $('btnAdd').onclick=addProduct;
+
+
+
+    function  deleteProduct(){
+        var pid= $('productId').value;
+        if(id===""){
+            alert(' Enter Productid')
+        }
+        var id=parseInt(pid)
+        var url= "http://localhost:8000/products/"+id;
+  
+        console.log(pid,id)
+        var xhttp=new XMLHttpRequest();
+        xhttp.open('DELETE', url,true);
+        xhttp.setRequestHeader('Content-Type','application/json;charset=UTF-8')
+        xhttp.send(JSON.stringify({"id":id})); // submit the request to the server
+        alert(" product with id "+id+" deleted")
+    }
+    $('btnDelete').onclick=deleteProduct;
+
+
+
+
+
+
+    function readProductFromUI(){
+        var pid=parseInt(("productId").value)
+        var pname=$("productName").value
+        var description=$("productDesc").value
+        var status=$("productStatus").value
+
+        return { "id": pid, 
+        "name": pname, 
+        "description": description,
+        "status": status
+     }
+    }
+
+
+</script>
+
+<!--   
+
+    JSON - Javascript Object Notation
+
+
+    JSON can be parsed using std Javascript functions
+    JSON.parse - Parse Json String to Javascript Object
+    JSON.stringify - Converts Javascript Object to JSON String
+ -->
+</body>
+</html>
