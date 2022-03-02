@@ -11,3 +11,7 @@ json-server --watch products.json --port 8000 => this will server on  port 8000
 
 Incase json-server is not working try with 
 npx json-server --watch products.json --port 8000
+
+
+Node.js - Runtime for Javascript
+npm - Node package Manage
